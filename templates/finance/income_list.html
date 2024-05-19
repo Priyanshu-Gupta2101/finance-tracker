@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Income Transactions</h1>
+<a href="{% url 'income_add' %}">Add Income</a>
+<ul>
+    {% for income in incomes %}
+    <li>
+        {{ income.date }} - {{ income.source }} - {{ income.amount }}
+        <a href="{% url 'income_edit' income.id %}">Edit</a>
+        <a href="{% url 'income_delete' income.id %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

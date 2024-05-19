@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django_browser_reload",
     'django.contrib.staticfiles',
     'accounts',
+    'finance'
 ]
 
 AUTHENTICATION_BACKENDS = [
