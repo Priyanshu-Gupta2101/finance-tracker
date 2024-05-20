@@ -13,9 +13,17 @@
   <body>
     <nav>
       <ul>
+        {% csrf_token %}
         <li><a href="{% url 'profile' %}">Profile</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li>
+          <form id="frm_logout" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <a href="javascript:document.getElementById('frm_logout').submit();"
+              >logout</a
+            >
+          </form>
+        </li>
         {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>
